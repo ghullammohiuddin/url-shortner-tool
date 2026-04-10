@@ -50,8 +50,7 @@ url-shortener/
 ### 1. Clone the repository
  
 ```bash
-git clone https://github.com/your-username/url-shortener.git
-cd url-shortener
+git clone https://github.com/ghullammohiuddin/url-shortner-tool.git
 ```
  
 ### 2. Install dependencies
