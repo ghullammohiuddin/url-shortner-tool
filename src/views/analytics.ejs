@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Analytics</title>
+</head>
+<body>
+    <% if (locals.stats) { %>
+        <table>
+            <tr>
+                <th>Total Visits</th>
+                <th>Visited At</th>
+            </tr>
+            <tr>
+                <td><%= stats.totalVisits %></td>
+                <td></td>
+            </tr>
+            <% stats.latestVisits.forEach(stat => { %>
+            <tr>
+                <td></td>
+                <td><%= stat.visited_at %></td>
+            </tr>
+            <% }) %>
+        </table>
+    <% } %>
+     
+</body>
+</html>

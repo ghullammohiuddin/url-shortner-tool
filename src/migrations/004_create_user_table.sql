@@ -1,0 +1,6 @@
+CREATE TABLE user(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255) UNIQUE,
+    email VARCHAR(255) UNIQUE,
+    password TEXT,
+);

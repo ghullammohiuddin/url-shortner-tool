@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .glass-panel {
+            background: rgba(22, 19, 11, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f2ca50 0%, #d4af37 100%);
+        }
+        .border-gradient {
+            border: 1px solid transparent;
+            background: linear-gradient(theme('colors.surface-container'), theme('colors.surface-container')) padding-box,
+                        linear-gradient(to bottom right, rgba(255,255,255,0.1), transparent) border-box;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#93000a",
+                    "on-tertiary-container": "#424547",
+                    "tertiary": "#cccfd1",
+                    "primary-fixed-dim": "#e9c349",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "secondary-container": "#3e495d",
+                    "secondary-fixed": "#d8e3fb",
+                    "on-primary-fixed": "#241a00",
+                    "on-primary-container": "#554300",
+                    "primary-fixed": "#ffe088",
+                    "tertiary-container": "#b0b3b5",
+                    "primary": "#f2ca50",
+                    "on-secondary-fixed-variant": "#3c475a",
+                    "outline-variant": "#4d4635",
+                    "background": "#16130b",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#38342b",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "surface-tint": "#e9c349",
+                    "primary-container": "#d4af37",
+                    "on-error-container": "#ffdad6",
+                    "surface-variant": "#38342b",
+                    "surface-bright": "#3d392f",
+                    "on-background": "#eae1d4",
+                    "secondary": "#bcc7de",
+                    "on-surface": "#eae1d4",
+                    "inverse-surface": "#eae1d4",
+                    "inverse-primary": "#735c00",
+                    "on-surface-variant": "#d0c5af",
+                    "inverse-on-surface": "#343027",
+                    "surface-container-high": "#2d2a21",
+                    "on-tertiary-fixed": "#191c1e",
+                    "on-primary": "#3c2f00",
+                    "outline": "#99907c",
+                    "surface-container-low": "#1f1b13",
+                    "on-secondary": "#263143",
+                    "surface-dim": "#16130b",
+                    "secondary-fixed-dim": "#bcc7de",
+                    "surface-container-lowest": "#110e07",
+                    "surface-container": "#231f17",
+                    "surface": "#16130b",
+                    "on-secondary-container": "#aeb9d0",
+                    "on-tertiary": "#2d3133",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-error": "#690005",
+                    "on-secondary-fixed": "#111c2d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "12px",
+                    "unit": "8px",
+                    "section-padding": "80px",
+                    "gutter": "24px",
+                    "container-max": "1200px",
+                    "stack-lg": "48px",
+                    "stack-md": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "display-xl": ["Manrope"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<!-- <header class="fixed top-0 w-full z-50 bg-slate-950/60 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-6 md:px-12 py-4 max-w-full mx-auto shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+<div class="text-xl font-bold tracking-widest text-yellow-500 dark:text-yellow-400 font-manrope antialiased tracking-tight">URL SHORTENER</div>
+</header> -->
+<main class="flex-grow flex flex-col items-center justify-center pt-24 pb-12 px-4 md:px-0 relative overflow-hidden">
+<!-- Background Abstract Element -->
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+<div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]"></div>
+</div>
+<!-- New Heading -->
+<div class="z-10 mb-8 text-center">
+<h2 class="text-4xl md:text-5xl font-bold text-primary font-manrope tracking-tight">Trimly</h2>
+</div>
+<!-- Main Sign In Container -->
+<div class="max-w-[1100px] w-full grid grid-cols-1 md:grid-cols-2 bg-surface-container-low rounded-3xl overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.5)] border border-white/5 z-10">
+<!-- Left Panel: Visual/Narrative -->
+<div class="relative hidden md:flex flex-col justify-end p-12 overflow-hidden bg-surface-container-lowest">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 mix-blend-luminosity" data-alt="Abstract digital network visualization with glowing fiber optic lines and deep blue and gold particles in a futuristic void" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAigLyq3ubZyaV6USI6WiUx92_D_hbu3u3cOmCxfI-kc2gQvKmw2I8YSMJEoTEgOaeUnFDpvfAaT5aifa-0FvoOASI4GmbhPO-HOUbSWz81gz5GSJgSPKGQDFO55Ej2mdtekviIpZ4dsUfvL6IEoCr2qvwLakmTWuToUR_ZXmvg36418XUZ3UikfHPjeDBpmuIERo609N2Sfll7uABweBOMY6GNIbQn-0TU5FyCCZph52HZguijMFTBHhUCeIVvaRi9gc3Nry6jWoPH"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10">
+<h1 class="font-display-xl text-display-xl text-on-surface mb-stack-sm">Welcome Back.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-sm">Sign in to manage your precision links and access global performance insights.</p>
+</div>
+</div>
+<!-- Right Panel: Sign In Form -->
+<div class="p-8 md:p-16 flex flex-col justify-center bg-surface-container">
+<div class="mb-stack-lg text-center md:text-left">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Sign In</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">Access your secure dashboard</p>
+</div>
+<form class="space-y-stack-md" action="/user/login" method="post">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-outline px-1">Email address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[20px]">alternate_email</span>
+<input class="w-full bg-surface-container-highest border border-outline-variant rounded-xl py-4 pl-12 pr-4 focus:outline-none focus:border-primary transition-all text-on-surface placeholder:text-outline-variant font-body-md" placeholder="name@company.com" type="email" name="email" required/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-outline px-1">Secure Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[20px]">lock</span>
+<input id="login-password" class="w-full bg-surface-container-highest border border-outline-variant rounded-xl py-4 pl-12 pr-12 focus:outline-none focus:border-primary transition-all text-on-surface placeholder:text-outline-variant font-body-md" placeholder="••••••••" type="password" name="password" required autocomplete="current-password"/>
+<button id="login-password-toggle" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-highest/80 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" type="button" aria-label="Show password" aria-pressed="false">
+<span id="login-password-toggle-icon" class="material-symbols-outlined text-[20px] pointer-events-none" aria-hidden="true">visibility</span>
+</button>
+</div>
+</div>
+<!-- Actions Row -->
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<label class="flex items-center gap-2 cursor-pointer group">
+<div class="relative w-5 h-5 flex items-center justify-center">
+<input class="peer hidden" type="checkbox"/>
+<div class="w-full h-full border-2 border-outline-variant rounded peer-checked:border-primary peer-checked:bg-primary transition-all"></div>
+<span class="material-symbols-outlined text-[14px] text-on-primary absolute scale-0 peer-checked:scale-100 transition-transform">check</span>
+</div>
+<span class="text-on-surface-variant group-hover:text-on-surface">Remember me</span>
+</label>
+<a class="text-primary hover:underline transition-all" href="#">Forgot password?</a>
+</div>
+<!-- Primary CTA -->
+<button class="w-full gold-gradient text-on-primary font-label-sm text-label-sm py-4 rounded-xl shadow-[0_10px_30px_rgba(242,202,80,0.2)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 mt-stack-md flex items-center justify-center gap-2" type="submit">
+                        Sign In
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Link -->
+<div class="mt-stack-lg text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        New here? <a class="text-primary hover:underline font-semibold ml-1 transition-all" href="/register/user">Create Account</a>
+</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 mt-auto bg-slate-950/40 backdrop-blur-lg border-t border-white/5 flex flex-col md:flex-row justify-center items-center gap-8 px-8 font-manrope text-xs font-light tracking-wide">
+<div class="text-sm font-semibold text-slate-300">Trimly</div>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-slate-300 transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-slate-300 transition-colors cursor-pointer" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-slate-300 transition-colors cursor-pointer" href="#">Security</a>
+<a class="text-slate-500 hover:text-slate-300 transition-colors cursor-pointer" href="#">Help Center</a>
+</div>
+<div class="text-slate-500">© 2024 Trimly. Effortless precision.</div>
+</footer>
+<script>
+(function () {
+  var input = document.getElementById("login-password");
+  var btn = document.getElementById("login-password-toggle");
+  var icon = document.getElementById("login-password-toggle-icon");
+  if (!input || !btn || !icon) return;
+  btn.addEventListener("click", function () {
+    var showing = input.type === "text";
+    input.type = showing ? "password" : "text";
+    icon.textContent = showing ? "visibility" : "visibility_off";
+    btn.setAttribute("aria-pressed", showing ? "false" : "true");
+    btn.setAttribute("aria-label", showing ? "Show password" : "Hide password");
+  });
+})();
+</script>
+</body></html>

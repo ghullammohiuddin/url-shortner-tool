@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Trimly - Modern URL Shortener</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed": "#e4e1e6",
+              "error-container": "#93000a",
+              "on-tertiary": "#303033",
+              "outline-variant": "#4b4734",
+              "on-surface-variant": "#cec6ad",
+              "surface-container": "#201f22",
+              "primary-fixed": "#ffe24c",
+              "on-tertiary-container": "#636266",
+              surface: "#131315",
+              "secondary-fixed-dim": "#c8c5ca",
+              "on-primary-fixed": "#211b00",
+              tertiary: "#fffcff",
+              "on-surface": "#e5e1e4",
+              "on-secondary-fixed-variant": "#47464a",
+              "on-error-container": "#ffdad6",
+              "on-secondary-container": "#b6b4b8",
+              "inverse-primary": "#6d5e00",
+              "surface-bright": "#39393b",
+              "on-primary-container": "#726300",
+              "on-secondary": "#303033",
+              error: "#ffb4ab",
+              "inverse-surface": "#e5e1e4",
+              "primary-fixed-dim": "#e2c62d",
+              "on-primary-fixed-variant": "#524600",
+              "on-secondary-fixed": "#1b1b1e",
+              "tertiary-fixed": "#e4e1e5",
+              "tertiary-fixed-dim": "#c8c6c9",
+              "primary-container": "#fde047",
+              "inverse-on-surface": "#313032",
+              primary: "#fffcff",
+              "on-primary": "#393000",
+              "on-background": "#e5e1e4",
+              outline: "#97917a",
+              "surface-container-highest": "#353437",
+              background: "#131315",
+              "on-tertiary-fixed": "#1b1b1e",
+              "surface-tint": "#e2c62d",
+              "surface-container-lowest": "#0e0e10",
+              "on-tertiary-fixed-variant": "#47464a",
+              "on-error": "#690005",
+              "surface-container-low": "#1c1b1d",
+              secondary: "#c8c5ca",
+              "tertiary-container": "#e2dfe3",
+              "secondary-container": "#47464a",
+              "surface-container-high": "#2a2a2c",
+              "surface-dim": "#131315",
+              "surface-variant": "#353437",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              xl: "80px",
+              sm: "12px",
+              "container-max": "1200px",
+              md: "24px",
+              base: "8px",
+              xs: "4px",
+              lg: "48px",
+              gutter: "24px",
+            },
+            fontFamily: {
+              h3: ["Space Grotesk"],
+              display: ["Space Grotesk"],
+              code: ["Inter"],
+              "body-md": ["Inter"],
+              "label-bold": ["Inter"],
+              h1: ["Space Grotesk"],
+              "body-lg": ["Inter"],
+              h2: ["Space Grotesk"],
+            },
+            fontSize: {
+              h3: ["1.5rem", { lineHeight: "1.4", fontWeight: "600" }],
+              display: [
+                "4.5rem",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.04em",
+                  fontWeight: "700",
+                },
+              ],
+              code: ["0.9375rem", { lineHeight: "1.5", fontWeight: "500" }],
+              "body-md": ["1rem", { lineHeight: "1.5", fontWeight: "400" }],
+              "label-bold": [
+                "0.875rem",
+                { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" },
+              ],
+              h1: [
+                "3rem",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["1.125rem", { lineHeight: "1.6", fontWeight: "400" }],
+              h2: ["2.25rem", { lineHeight: "1.3", fontWeight: "600" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #131315;
+      }
+      .ambient-glow {
+        box-shadow: 0 0 30px 5px rgba(253, 224, 71, 0.15);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800 shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+    >
+      <nav
+        class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto"
+      >
+        <div
+          class="text-2xl font-black italic text-yellow-400 tracking-tighter font-['Space_Grotesk'] uppercase"
+        >
+          Trimly
+        </div>
+
+        <div class="flex gap-4 items-center">
+          <a
+            class="font-['Space_Grotesk'] uppercase tracking-tight text-zinc-400 font-medium hover:text-white transition-all"
+            href="/login/user"
+            >Sign In</a
+          >
+          <a
+            class="bg-primary-container text-on-primary-container font-label-bold py-2 px-6 rounded-lg uppercase tracking-widest hover:scale-105 active:scale-95 transition-all duration-200 ambient-glow"
+            href="/register/user"
+            >Get Started</a
+          >
+        </div>
+      </nav>
+    </header>
+    <main class="flex-grow pt-32">
+      <!-- Hero Section -->
+      <section
+        class="max-w-7xl mx-auto px-6 py-20 text-center flex flex-col items-center"
+      >
+        <h1
+          class="font-display text-display text-primary mb-8 max-w-4xl uppercase"
+        >
+          SHORTEN YOUR LINKS,
+          <span class="text-primary-container">EXPAND YOUR REACH.</span>
+        </h1>
+        <p class="font-body-lg text-on-surface-variant max-w-2xl mb-12">
+          The high-performance URL management platform built for speed,
+          security, and absolute precision. Transform long URLs into powerful,
+          trackable assets instantly.
+        </p>
+        <div class="w-full max-w-3xl">
+          <div
+            class="relative flex items-stretch p-1.5 sm:p-2 bg-surface-container-lowest border-2 border-outline-variant focus-within:border-primary-container focus-within:ring-2 focus-within:ring-primary-container/25 transition-all rounded-xl shadow-2xl"
+          >
+            <form
+              action="/url/generate-short-url"
+              method="post"
+              class="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:gap-1"
+            >
+              <input
+                class="min-w-0 flex-1 w-full bg-transparent border-0 text-body-lg sm:text-h3 font-h3 py-3.5 px-4 sm:py-3.5 sm:px-5 text-on-surface placeholder:text-on-surface-variant/55 focus:ring-0 focus:outline-none rounded-lg sm:rounded-md"
+                placeholder="Paste your long URL here…"
+                type="text"
+                name="redirectUrl"
+                required
+                autocomplete="url"
+                inputmode="url"
+                aria-label="URL to shorten"
+              />
+              <button
+                class="shrink-0 bg-primary-container text-on-primary-container font-display text-label-bold sm:text-h3 font-black py-3.5 px-6 sm:px-9 sm:py-3.5 rounded-lg uppercase tracking-tight hover:brightness-110 active:brightness-95 active:scale-[0.99] sm:hover:scale-[1.02] sm:active:scale-[0.98] transition-all duration-200 ambient-glow whitespace-nowrap inline-flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-container focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-lowest"
+                type="submit"
+              >
+                <span
+                  class="material-symbols-outlined text-[22px] leading-none"
+                  data-icon="arrow_forward"
+                  aria-hidden="true"
+                  >arrow_forward</span
+                >
+                <span>Shorten</span>
+              </button>
+            </form>
+          </div>
+        </div>
+        <!-- Result Section (Preview) -->
+        <div class="mt-8 w-full max-w-3xl opacity-100 transition-all">
+          <div
+            class="flex items-center justify-between p-4 bg-surface-container-high border border-outline-variant rounded-lg"
+          >
+            <div class="flex items-center gap-4">
+              <div class="bg-primary-container/10 p-2 rounded">
+                <span
+                  class="material-symbols-outlined text-primary-container"
+                  data-icon="link"
+                  >link</span
+                >
+              </div>
+              <span class="font-code text-primary-container text-lg"
+                >trimly/premium-access</span
+              >
+            </div>
+            <div class="flex gap-2">
+              <button
+                class="p-3 text-on-surface hover:bg-surface-variant rounded-lg transition-colors border border-outline-variant"
+              >
+                <span class="material-symbols-outlined" data-icon="qr_code"
+                  >qr_code</span
+                >
+              </button>
+              <button
+                class="flex items-center gap-2 bg-surface-variant text-on-surface font-label-bold py-3 px-5 rounded-lg border border-outline-variant hover:border-primary-container transition-all"
+              >
+                <span class="material-symbols-outlined" data-icon="content_copy"
+                  >content_copy</span
+                >
+                COPY
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Features Section -->
+      <section class="max-w-7xl mx-auto px-6 py-24 border-t border-zinc-900">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Feature 1 -->
+          <div
+            class="bg-surface-container-low p-8 rounded-xl border border-zinc-800 hover:border-primary-container transition-all duration-300 flex flex-col gap-6 group"
+          >
+            <div
+              class="w-12 h-12 bg-zinc-900 rounded-lg flex items-center justify-center border border-zinc-800 group-hover:bg-primary-container transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container group-hover:text-on-primary-container"
+                data-icon="bolt"
+                >bolt</span
+              >
+            </div>
+            <h3 class="font-h3 text-h3 text-primary uppercase">
+              Fast Redirects
+            </h3>
+            <p class="text-on-surface-variant font-body-md leading-relaxed">
+              Global edge network ensures your links resolve in milliseconds.
+              Speed is not a luxury; it's our standard.
+            </p>
+          </div>
+          <!-- Feature 2 -->
+          <div
+            class="bg-surface-container-low p-8 rounded-xl border border-zinc-800 hover:border-primary-container transition-all duration-300 flex flex-col gap-6 group"
+          >
+            <div
+              class="w-12 h-12 bg-zinc-900 rounded-lg flex items-center justify-center border border-zinc-800 group-hover:bg-primary-container transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container group-hover:text-on-primary-container"
+                data-icon="insights"
+                >insights</span
+              >
+            </div>
+            <h3 class="font-h3 text-h3 text-primary uppercase">
+              Detailed Analytics
+            </h3>
+            <p class="text-on-surface-variant font-body-md leading-relaxed">
+              Real-time tracking of clicks, referrers, and geography. Deep data
+              for high-stakes decision making.
+            </p>
+          </div>
+          <!-- Feature 3 -->
+          <div
+            class="bg-surface-container-low p-8 rounded-xl border border-zinc-800 hover:border-primary-container transition-all duration-300 flex flex-col gap-6 group"
+          >
+            <div
+              class="w-12 h-12 bg-zinc-900 rounded-lg flex items-center justify-center border border-zinc-800 group-hover:bg-primary-container transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-primary-container group-hover:text-on-primary-container"
+                data-icon="label"
+                >label</span
+              >
+            </div>
+            <h3 class="font-h3 text-h3 text-primary uppercase">
+              Custom Aliases
+            </h3>
+            <p class="text-on-surface-variant font-body-md leading-relaxed">
+              Own your brand by creating memorable, high-converting custom
+              links. Complete control over your identity.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Decorative Image Section -->
+      <section class="max-w-7xl mx-auto px-6 pb-24">
+        <div
+          class="relative w-full h-[400px] overflow-hidden rounded-2xl border border-zinc-800 grayscale hover:grayscale-0 transition-all duration-1000"
+        >
+          <img
+            class="w-full h-full object-cover"
+            data-alt="A high-tech server room background with glowing yellow and white fiber optic cables pulsing with digital energy. The aesthetic is cyber-noir with high contrast between deep obsidian shadows and brilliant electric yellow highlights. A sense of immense data speed and futuristic infrastructure is conveyed through sharp lines and mathematical precision."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkyTBrQnLNUtn3IXsW34jc6rvXpZr03apyVaDdIMKGVToRjVxOL8PZ3mr4Hr12DY6j5m74ojqRsGfuVvslQGNOM1LMgZXkyvPO41FrP__dhVpRqnEkVaK6_Wo8bVGfnzDA0uHysY08u6md4AMMMQTqC8QbUATy0iPVd-idg4GrCQjg_KVTCrX1RRQErHM7cwRJZEdChyWEmHojGxYqB0YmCaZ8-wKIhV4ewOH9gqUKPUHtZQra3BNFZ04ZCRGpl0LtEbFwfxpCkiE"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent"
+          ></div>
+          <div class="absolute bottom-10 left-10">
+            <p
+              class="font-display text-h1 text-primary-container uppercase tracking-widest"
+            >
+              Built for Scale
+            </p>
+            <p class="font-body-lg text-white max-w-md">
+              Handling billions of redirects monthly with 99.99% uptime
+              guaranteed by our hyper-connected infrastructure.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full mt-auto bg-zinc-950 border-t border-zinc-900">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center px-8 py-12 gap-6 max-w-7xl mx-auto"
+      >
+        <div
+          class="text-lg font-black text-yellow-400 font-['Space_Grotesk'] uppercase"
+        >
+          Trimly
+        </div>
+        <div class="flex flex-wrap justify-center gap-8">
+          <a
+            class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-zinc-600 hover:text-white transition-colors"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-zinc-600 hover:text-white transition-colors"
+            href="#"
+            >Terms of Service</a
+          >
+          <a
+            class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-zinc-600 hover:text-white transition-colors"
+            href="#"
+            >Security</a
+          >
+          <a
+            class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-zinc-600 hover:text-white transition-colors"
+            href="#"
+            >Status</a
+          >
+        </div>
+        <div
+          class="font-['Space_Grotesk'] text-[10px] tracking-widest uppercase text-zinc-600"
+        >
+          © 2024 Trimly GLOBAL OPERATIONS. ALL RIGHTS RESERVED.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

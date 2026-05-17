@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trimly | Precision in every connection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#e9c349",
+                      "on-tertiary-container": "#424547",
+                      "on-secondary-fixed-variant": "#3c475a",
+                      "surface-variant": "#38342b",
+                      "primary-fixed": "#ffe088",
+                      "inverse-on-surface": "#343027",
+                      "surface-container-lowest": "#110e07",
+                      "on-tertiary-fixed-variant": "#444749",
+                      "surface-container-high": "#2d2a21",
+                      "primary-fixed-dim": "#e9c349",
+                      "tertiary-fixed": "#e0e3e5",
+                      "error-container": "#93000a",
+                      "on-tertiary-fixed": "#191c1e",
+                      "on-primary-fixed": "#241a00",
+                      "surface-container-low": "#1f1b13",
+                      "error": "#ffb4ab",
+                      "on-surface": "#eae1d4",
+                      "on-secondary-fixed": "#111c2d",
+                      "on-background": "#eae1d4",
+                      "surface": "#16130b",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-container": "#aeb9d0",
+                      "tertiary": "#cccfd1",
+                      "surface-bright": "#3d392f",
+                      "tertiary-fixed-dim": "#c4c7c9",
+                      "on-primary": "#3c2f00",
+                      "secondary-container": "#3e495d",
+                      "on-primary-container": "#554300",
+                      "primary": "#f2ca50",
+                      "outline-variant": "#4d4635",
+                      "on-surface-variant": "#d0c5af",
+                      "inverse-surface": "#eae1d4",
+                      "surface-dim": "#16130b",
+                      "on-tertiary": "#2d3133",
+                      "background": "#16130b",
+                      "surface-container-highest": "#38342b",
+                      "on-secondary": "#263143",
+                      "surface-container": "#231f17",
+                      "secondary": "#bcc7de",
+                      "secondary-fixed": "#d8e3fb",
+                      "outline": "#99907c",
+                      "primary-container": "#d4af37",
+                      "inverse-primary": "#735c00",
+                      "on-error": "#690005",
+                      "secondary-fixed-dim": "#bcc7de",
+                      "tertiary-container": "#b0b3b5",
+                      "on-primary-fixed-variant": "#574500"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "stack-md": "24px",
+                      "container-max": "1200px",
+                      "stack-lg": "48px",
+                      "section-padding": "80px",
+                      "stack-sm": "12px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Manrope"],
+                      "display-xl": ["Manrope"],
+                      "body-lg": ["Manrope"],
+                      "headline-md": ["Manrope"],
+                      "headline-lg": ["Manrope"],
+                      "body-md": ["Manrope"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "600" }],
+                      "display-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                      "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }],
+                      "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                      "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                      "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400" }]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(22, 19, 11, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(153, 144, 124, 0.1);
+        }
+        .mesh-bg {
+            background-color: #16130b;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(242, 202, 80, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(127, 29, 29, 0.1) 0px, transparent 50%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md mesh-bg min-h-screen flex flex-col items-center">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 w-full py-8 px-6 flex justify-center items-center font-manrope antialiased tracking-tight">
+<div class="text-2xl font-bold tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-500 to-amber-200 uppercase">
+            Trimly
+        </div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow flex items-center justify-center w-full px-6 py-12">
+<div class="grid lg:grid-cols-2 max-w-5xl w-full glass-panel rounded-xl overflow-hidden shadow-2xl shadow-black/40">
+<!-- Visual Pane (Desktop Only) -->
+<div class="hidden lg:block relative overflow-hidden bg-surface-container-lowest">
+<img alt="digital connectivity" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRApmb5jm201v8pzQDeQxQ3OvQv3C91xcrvRza17I3FH5vDsL-114nSdWOSZi-dtmzSduq3j1uGPfUv_xN8aJ4U_dLa5fpcVs63PNqC00ktFXqqiACcxze-vQJJSBCnzvNxSyhb8UCxklJQXhWWtw0ugCE7gEhdw9Yyo556IPJMCatc9R8fjBU_Toxb9nba5Uc06WUFvc1vrGShK77lvT7g_1e0IyM-XRAbsJdCawKRGvecxnSt80fBu5WEg3icU03H1AswZfRBOfK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-red-900/20"></div>
+<div class="absolute bottom-12 left-12 right-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Simplify Your Links.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Experience precision in every connection. Transform long URLs into elegant, trackable, and powerful digital assets.</p>
+</div>
+</div>
+<!-- Form Pane -->
+<div class="p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+<div class="mb-10 text-center lg:text-left">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Create Account</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Step into the extraordinary ecosystem.</p>
+</div>
+<form class="space-y-6" action="/user/register" method="post">
+<div class="space-y-4">
+<!-- Name Field -->
+<div class="group">
+<label class="font-label-sm text-label-sm text-outline mb-2 block uppercase tracking-widest">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">person</span>
+<input class="w-full bg-surface-container-high border border-outline-variant/30 rounded-lg py-4 pl-12 pr-4 font-body-md text-on-surface focus:outline-none focus:border-primary transition-all placeholder:text-outline-variant" placeholder="Julian Voss" type="text" name="username" required/>
+</div>
+</div>
+<!-- Email Field -->
+<div class="group">
+<label class="font-label-sm text-label-sm text-outline mb-2 block uppercase tracking-widest">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
+<input class="w-full bg-surface-container-high border border-outline-variant/30 rounded-lg py-4 pl-12 pr-4 font-body-md text-on-surface focus:outline-none focus:border-primary transition-all placeholder:text-outline-variant" placeholder="julian@voss.design" type="email" name="email" required/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="group">
+<label class="font-label-sm text-label-sm text-outline mb-2 block uppercase tracking-widest">Secure Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
+<input id="register-password" class="w-full bg-surface-container-high border border-outline-variant/30 rounded-lg py-4 pl-12 pr-12 font-body-md text-on-surface focus:outline-none focus:border-primary transition-all placeholder:text-outline-variant" placeholder="••••••••" type="password" name="password" required autocomplete="new-password"/>
+<button id="register-password-toggle" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-highest/40 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" type="button" aria-label="Show password" aria-pressed="false">
+<span id="register-password-toggle-icon" class="material-symbols-outlined text-[20px] pointer-events-none" aria-hidden="true">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary font-bold rounded-lg hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-xl shadow-primary/10 flex items-center justify-center gap-2 group mt-8" type="submit">
+<span>BEGIN JOURNEY</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+<div class="mt-10 pt-10 text-center border-t border-outline-variant/10">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Already curated? <a class="text-primary hover:underline decoration-primary/30 underline-offset-4" href="/login/user">Sign In</a>
+</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full max-w-7xl mx-auto px-12 py-10 opacity-60 border-t border-slate-800/30 flex flex-col md:flex-row justify-between items-center">
+<div class="font-manrope text-[11px] uppercase tracking-widest text-slate-500 mb-6 md:mb-0">
+            © 2024 Trimly. PRECISION DEFINED.
+        </div>
+<div class="flex gap-8">
+<a class="font-manrope text-[11px] uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="font-manrope text-[11px] uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors duration-300" href="#">Terms of Service</a>
+<a class="font-manrope text-[11px] uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors duration-300" href="#">Security</a>
+<a class="font-manrope text-[11px] uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors duration-300" href="#">Contact</a>
+</div>
+</footer>
+<script>
+(function () {
+  var input = document.getElementById("register-password");
+  var btn = document.getElementById("register-password-toggle");
+  var icon = document.getElementById("register-password-toggle-icon");
+  if (!input || !btn || !icon) return;
+  btn.addEventListener("click", function () {
+    var showing = input.type === "text";
+    input.type = showing ? "password" : "text";
+    icon.textContent = showing ? "visibility" : "visibility_off";
+    btn.setAttribute("aria-pressed", showing ? "false" : "true");
+    btn.setAttribute("aria-label", showing ? "Show password" : "Hide password");
+  });
+})();
+</script>
+</body></html>
